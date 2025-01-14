@@ -69,12 +69,14 @@ export default function SignInForm() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Welcome Back to True Feedback</CardTitle>
+      <Card className="w-full max-w-md shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <CardHeader className="space-y-2 pb-6">
+          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Welcome Back to True Feedback
+          </CardTitle>
           <p className="text-center text-muted-foreground">Sign in to continue your secret conversations</p>
         </CardHeader>
-        <CardContent className="grid gap-4">
+        <CardContent className="grid gap-6">
           {error && (
             <Alert variant="destructive">
               <AlertCircle className="h-4 w-4" />
@@ -130,7 +132,11 @@ export default function SignInForm() {
                   Forgot password?
                 </Link>
               </div>
-              <Button className="w-full" type="submit" disabled={isLoading}>
+              <Button 
+                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transition-all duration-300" 
+                type="submit" 
+                disabled={isLoading}
+              >
                 {isLoading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -143,7 +149,7 @@ export default function SignInForm() {
             </form>
           </Form>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="pt-4">
           <p className="text-center text-sm text-muted-foreground w-full">
             Not a member yet?{' '}
             <Link href="/sign-up" className="font-medium text-primary hover:underline">

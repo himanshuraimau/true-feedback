@@ -22,7 +22,6 @@ import { Loader2, User, Mail, Lock, CheckCircle, XCircle } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { signUpSchema } from '@/schemas/signUpSchema'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 const useUsernameCheck = (initialUsername: string) => {
   const [username, setUsername] = useState(initialUsername)
@@ -117,12 +116,14 @@ export default function SignUpForm() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Join True Feedback</CardTitle>
+      <Card className="w-full max-w-md shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <CardHeader className="space-y-2 pb-6">
+          <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Join True Feedback
+          </CardTitle>
           <p className="text-center text-muted-foreground">Sign up to start your anonymous adventure</p>
         </CardHeader>
-        <CardContent className="grid gap-4">
+        <CardContent className="grid gap-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
@@ -202,7 +203,7 @@ export default function SignUpForm() {
               />
               <Button 
                 type="submit" 
-                className="w-full"
+                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary transition-all duration-300"
                 disabled={isSubmitting || isCheckingUsername || usernameMessage !== 'Username is unique'}
               >
                 {isSubmitting ? (
@@ -217,7 +218,7 @@ export default function SignUpForm() {
             </form>
           </Form>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="pt-4">
           <p className="text-center text-sm text-muted-foreground w-full">
             Already a member?{' '}
             <Link href="/sign-in" className="font-medium text-primary hover:underline">
